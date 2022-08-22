@@ -2,14 +2,17 @@
 
 <H2>These are your letters<H2>
   <p>............................................<p>
-<%= @letters%>
+  <ul>
+    <% @letters.each do |letter|%>
+    <li> <%= letter.upcase %> <li>
+   <% end %>
+  <ul>
   <p>............................................<p>
 
-<form action="/score" method="post" data-turbo="false">
+<form action="/score" method="POST" data-turbo="false">
  <label> Please enter your suggestion here </label>
   <input type="text" name="word">
 
-  <input type="submit" value="Enter Word!">
+  <input> type= "hidden" name = "letters" value="<% @letters%>"
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  
 </form>
