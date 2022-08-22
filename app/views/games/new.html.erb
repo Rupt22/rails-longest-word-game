@@ -1,0 +1,15 @@
+<H1>This is the new game page<H1>
+
+<H2>These are your letters<H2>
+  <p>............................................<p>
+<%= @letters%>
+  <p>............................................<p>
+
+<form action="/score" method="post" data-turbo="false">
+ <label> Please enter your suggestion here </label>
+  <input type="text" name="word">
+
+  <input type="submit" value="Enter Word!">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  
+</form>
